@@ -39,4 +39,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run PyCharm Security
-        uses: tonybaloney/pycharm-security@master
+        uses: tonybaloney/pycharm-security@
+        with: 
+          fail_on_warnings: true
