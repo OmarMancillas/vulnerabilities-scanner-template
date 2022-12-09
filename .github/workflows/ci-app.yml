@@ -4,7 +4,7 @@
 
   concurrency: ci-app-${{ github.ref }}
 
-jobs:
+  jobs:
 
     truffleHog:
       runs-on: ubuntu-latest
@@ -17,14 +17,4 @@ jobs:
         - name: trufflehog
           run: |
             docker run -v ${PWD}:/truffle trufflesecurity/trufflehog:latest filesystem --directory="/truffle/"
-    gitleaks:
-      name: gitleaks
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-          with:
-            fetch-depth: 0
-        
-        - name: run gitleaks docker
-          run: |
-            docker run -v ${PWD}:/path zricethezav/gitleaks:latest detect --source="/path/" -v -l debug --no-git
+    
